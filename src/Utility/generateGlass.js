@@ -86,8 +86,8 @@ export function generateInitialState(numGlasses, numColors, glassCapacity, numEm
 }
 
 export function exportInitialGlasses(level){
-    let numGlasses = 5;        
-    let numColors = 3;        
+    let numGlasses = 5;
+    let numColors = 3;
     let glassCapacity = 4;     
     let numEmptyGlasses = 2; 
     let initialState = generateInitialState(numGlasses, numColors, glassCapacity, numEmptyGlasses, level);

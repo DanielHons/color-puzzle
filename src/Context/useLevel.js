@@ -1,7 +1,8 @@
 import { createContext, useContext , useState } from "react";
 
+const storageKeyLevel = "level";
 const LevelContext = createContext({
-    level: JSON.parse(localStorage.getItem("level")) || 1,
+    level: JSON.parse(localStorage.getItem(storageKeyLevel)) || 1,
     increaseLevel: ()=>{},
     resetLevel: ()=>{}
 })
@@ -9,18 +10,18 @@ const LevelContext = createContext({
 const useLevel = () => useContext(LevelContext)
 
 const LevelProvider = ({children})=>{
-    const [level,setLevel] = useState(JSON.parse(localStorage.getItem("level")) || 1);
+    const [level,setLevel] = useState(JSON.parse(localStorage.getItem(storageKeyLevel)) || 1);
 
     const increaseLevel = ()=>{
         setLevel((preLevel)=>{
-            localStorage.setItem("level",preLevel+1)
+            localStorage.setItem(storageKeyLevel,preLevel+1)
             return preLevel+1;
         })
     }
 
     const resetLevel = ()=>{
         setLevel(0);
-        localStorage.setItem("level",0)
+        localStorage.setItem(storageKeyLevel,0)
     }
 
     return (

@@ -1,0 +1,12 @@
+
+@keyframes pourArc {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(calc(var(--translateX) / 4), calc(var(--translateY) - 100px)) rotate(var(--rotation));
+    }
+    100% {
+        transform: translate(var(--translateX), var(--translateY)) rotate(var(--rotation));
+    }
+}
