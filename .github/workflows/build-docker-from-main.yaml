@@ -14,6 +14,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Settings
+        run: |
+          echo "DOCKER_REPO=${GITHUB_REPOSITORY@L}" >> "${GITHUB_ENV}"
       # Log in to GitHub Container Registry
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v2
@@ -33,5 +36,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}:latest
+            ghcr.io/${DOCKER_REPO}:latest
             ghcr.io/${{ github.repository }}:${{ github.sha }}
